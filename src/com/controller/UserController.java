@@ -1,22 +1,31 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import com.himalaya.data.UserDAOImpl;
 import com.himlaya.model.User;
+
 
 /**
  * Servlet implementation class UserController
  */
 @WebServlet("/UserController")
+@MultipartConfig(
+		fileSizeThreshold=1024 * 10, //10 KB
+		maxFileSize=1024*300, //300 kb
+		maxRequestSize=1024*1024
+		)
 public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -56,6 +65,9 @@ public class UserController extends HttpServlet {
     	   case "LOGOUT":
     		   LogOut(request,response);
     		   break;
+    	   case "UPDATEPHOTO":
+				updatePhoto(request,response);
+				break;
     	   }
     	   
     	   
@@ -66,6 +78,37 @@ public class UserController extends HttpServlet {
        }
 		
 		
+	}
+
+	
+
+	private void updatePhoto(HttpServletRequest request, HttpServletResponse response)throws Exception {
+		
+		String userId=request.getParameter("userId");
+		Part filePart=request.getPart("photo");
+		
+		InputStream inputStream = null;
+		if(filePart!=null)
+		{
+			inputStream=filePart.getInputStream();
+		}
+		try 
+		{
+		userUtil.updatePhoto(userId, inputStream);
+		
+		User user= userUtil.getUser(userId);
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("user", user);
+		response.sendRedirect(request.getContextPath() + "/ItemController");
+		}
+		catch(Exception e)
+		{
+			User user= userUtil.getUser(userId);
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			response.sendRedirect("ItemController");
+		}
 	}
 
 	private void LogOut(HttpServletRequest request, HttpServletResponse response)throws Exception {
@@ -87,28 +130,35 @@ public class UserController extends HttpServlet {
 		String password=request.getParameter("password");
 		
 		String message=null;
-		String resource="login.jsp";
+		String path="login.jsp";
 		
-		try 
-		{
-			User user=userUtil.getUser(userId);
+		try {
+			User user = userUtil.getUser(userId);
 			if(user.getPassword().equals(password)) {
-			    resource="Welcome.jsp";
-			    HttpSession session=request.getSession();
-			    session.setAttribute("user", user);
-			}
-			else
-				message="wrong password pls try again ";
+			//	String uri = request.getRequestURI();
+			//	System.out.println(uri);
+			//pah = "ItemController";
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
+				response.sendRedirect("ItemController");
+				//  System.out.println("Testing...");
+				
 		}
-		catch(Exception e)
-		{
+		else {
+				message = "Wrong password : please try again";
+				request.setAttribute("msg", message);
+				RequestDispatcher rd=request.getRequestDispatcher(path);
+				rd.forward(request,response);
+				//System.out.println(e);
+		}
+		}catch (Exception e) {
 			message = e.getMessage();
-		}
+			request.setAttribute("msg", message);
+			RequestDispatcher rd=request.getRequestDispatcher(path);
+			rd.forward(request,response);
+			System.out.println(e);
 		
-		request.setAttribute("msg", message);
-		RequestDispatcher rd = request.getRequestDispatcher(resource);
-		rd.forward(request, response);
-		
+	}
 		
 		
 	}
@@ -122,7 +172,14 @@ public class UserController extends HttpServlet {
 		String address=request.getParameter("address");
 		String city=request.getParameter("city");
 		
-		User user = new User(userId, password, firstName, lastName, address, city);
+		Part filePart= request.getPart("photo");// to take photo
+		InputStream inputStream =null;
+		if(filePart!=null)
+		{
+			inputStream=filePart.getInputStream();
+		}
+		
+		User user = new User(userId, password, firstName, lastName, address, city,inputStream);
 		
 		System.out.println(user);
 		

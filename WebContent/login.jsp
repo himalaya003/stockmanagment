@@ -5,28 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Form</title>
-<link rel="stylesheet" href="Style1.css">
+<link rel="stylesheet" href="Style2.css">
 </head>
 <body>
 
-<form action="UserController" method="post">
-<input type="hidden" name="command" value="USER">
-<div class="login-box">
-<h4 style="color: green;">${msg}</h4>
-  <h1>Login</h1>
-  <div class="textbox">
-    <i class="fas fa-user"></i>
-    <input type="text" name="userId" placeholder="Username">
-  </div>
+<div class="login-form">
+      <form action="UserController" method="post" enctype="multipart/form-data"><!-- nessecary for image -->
+      <input type="hidden" name="command" value="USER">
+      <h4 style="color: white;">${msg}</h4>
+        <h1>Log In</h1>
+        <input type="text" name="userId" placeholder="Username" class="txtb">
+        <input type="password" name="password" placeholder="Password" class="txtb">
+        <label><input type="checkbox" checked="checked" name="remember">Remember me</label>
+        <input type="submit" value="Sing in" class="login-btn">
+      </form>
+    </div>
 
-  <div class="textbox">
-    <i class="fas fa-lock"></i>
-    <input type="password" name="password" placeholder="Password">
-  </div>
-  <br>
-  <label><input type="checkbox" checked="checked" name="remember">Remember me</label>
-  <input type="submit" value="Sing in" class="login-btn">
-</div>
-</form>
+
 </body>
 </html>

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>LIST PAGE</title>
-    <link rel="stylesheet" href="Style2.css">
   </head>
   <body>
     
@@ -18,7 +17,7 @@
     
     
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">STOCK MANAGMENT</a>
+  <a class="navbar-brand" href="#">GROCERY STOCK MANAGMENT</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,10 +25,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="Home.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
+        <a class="nav-link" href="https://www.metro.co.in/about-us">About Us</a>
       </li>
       
       </li>
@@ -40,6 +39,13 @@
     </ul>
     
     <ul class="navbar-nav mi auto">
+    
+    <li class="nav-item">
+    <a href="#" class="nav-link">
+    <i class="fa fa-user"></i><img src="data:image/jpg;base64,${user.base64Image}" class="rounded-circle" width="40" height="40"/>
+    </a>
+    </li>
+    
     <li class="nav-item">
     <a href="#" class="nav-link">
     <i class="fa fa-user"></i>WELCOME ${user.firstName} 

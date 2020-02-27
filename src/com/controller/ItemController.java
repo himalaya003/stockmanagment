@@ -107,7 +107,7 @@ String searchName= request.getParameter("searchName");
 
 	private void updateItem(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		
-int itemCode = Integer.parseInt(request.getParameter("itemCode"));
+        int itemCode = Integer.parseInt(request.getParameter("itemCode"));
 		
 		String itemName = request.getParameter("itemName");
 		String unit = request.getParameter("unit");
@@ -130,8 +130,8 @@ int itemCode = Integer.parseInt(request.getParameter("itemCode"));
 					
 		itemUtil.updateItem(item);   //Model ko date dega
 		
-		listItem(request,response); // list call
-				
+		//listItem(request,response); // list call
+		response.sendRedirect("ItemController?command=LIST");
 		
 	}
 
@@ -157,8 +157,8 @@ int itemCode = Integer.parseInt(request.getParameter("itemCode"));
 		
 		itemUtil.addItem(item);  
 		
-		listItem(request,response);  //send back to main page(the item list)
-		
+		//listItem(request,response);  //send back to main page(the item list)
+		response.sendRedirect("ItemController?command=LIST");
 	}
 
 	private void loadItem(HttpServletRequest request, HttpServletResponse response)throws Exception {

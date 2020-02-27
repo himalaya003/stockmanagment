@@ -11,16 +11,17 @@
 
 <div class="signup-form">
       <h5 style="color:green"> ${msg}</h5>
-      <form class="" action="UserController" method="post">
+      <form class="" action="UserController" method="post" enctype="multipart/form-data"><!-- nessecary for image -->
       <input type="hidden" name="command" value="ADD">
         <h1>Sign Up</h1>
-        <input type="text" name="userId" placeholder="User Id" class="txtb">
-        <input type="password" name="password" placeholder="Password" class="txtb">
-        <input type="text" name="firstName" placeholder="First Name" class="txtb">
-        <input type="text" name="lastName" placeholder="Last Name" class="txtb">
-        <input type="text" name="address" placeholder="Address" class="txtb">
-        <input type="text" name="city" placeholder="City" class="txtb">
-        <input type="submit" value="Create Account" class="signup-btn">
+        <input type="text" name="userId" placeholder="User Id" class="txtb" required="required">
+        <input type="password" name="password" placeholder="Password" class="txtb" required="required"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+        <input type="text" name="firstName" placeholder="First Name" class="txtb" required="required" pattern="[A-Za-z]{3,}" title="Must contain at least 3 or more characters">
+        <input type="text" name="lastName" placeholder="Last Name" class="txtb" required="required" pattern="[A-Za-z]{3,}" title="Must contain at least 3 or more characters">
+        <input type="text" name="address" placeholder="Address" class="txtb" required="required">
+        <input type="text" name="city" placeholder="City" class="txtb" required="required">
+        <input type="file" name="photo" size=50 ><!-- broswe of image -->
+        <input type="submit" value="Create Account" class="signup-btn" >
         <a href="login.jsp">Already Have one ?</a>
       </form>
     </div>
