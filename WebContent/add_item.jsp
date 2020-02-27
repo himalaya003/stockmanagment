@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>LIST PAGE</title>
+    <% response.setHeader("Cache-Control","no-cache, no-store,must-revalidate");%>
   </head>
   <body>
     
@@ -17,6 +18,7 @@
     
     
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    
   <a class="navbar-brand" href="#">GROCERY STOCK MANAGMENT</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -69,7 +71,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl">
-        <h1>Grocery Stock Management</h1>
+        <image src="homepage.jpg" class="rounded float-left" height="100" width="150" aling="middle">
+        <br>
+        <h1 align="center">ADD GROCERY ITEMS</h1>
         </div>
       </div>
     </div>
@@ -78,7 +82,8 @@
   
   <br>
   <div align="center">
-<h1>Adding Items</h1>
+  <b>${msg}</b>
+  <br>
 </head>
 <body>
 	<form action="ItemController" method="post">
@@ -88,22 +93,22 @@
 	
 	<tr>
 	<th>Item_Name</th>
-	<th><input type="text" name="itemName" placeholder="itemName"/></th>
+	<th><input type="text" name="itemName" placeholder="itemName" required="required"/></th>
 	</tr>
 	
 	<tr>
 	<th>Unit</th>
-	<th><input type="text" name="unit" placeholder="Unit"/></th>
+	<th><input type="text" name="unit" placeholder="Unit" required="required"/></th>
 	</tr>
 	
 	<tr>
 	<th>Beginning_Inventory</th>
-	<th><input type="text" name="beginningInventory" placeholder="BeginningInventory"/></th>
+	<th><input type="number" name="beginningInventory" placeholder="BeginningInventory" required="required"/></th>
 	</tr>
 	
 	<tr>
 	<th>Quantity_On_Hand </th>
-	<th><input type="text" name="quantityOnHand" placeholder="QuantityOnHand"/></th>
+	<th><input type="number" name="quantityOnHand" placeholder="QuantityOnHand" required="required"/></th>
 	</tr>
 	
 	<tr>
@@ -113,18 +118,18 @@
 	
 	<tr>
 	<th>Date_Of_Manufacture</th>
-	<th><input type="Date" name="dateOfManufacture" placeholder="DateOfManufacture"/></th>
+	<th><input type="Date" name="dateOfManufacture" placeholder="DateOfManufacture" required="required"/></th>
 	</tr>
 	
 	<tr>
 	<th>Date_Of_Expiry</th>
-	<th><input type="Date" name="dateOfExpiry" placeholder="DateOfExpiry"/></th>
+	<th><input type="Date" name="dateOfExpiry" placeholder="DateOfExpiry" required="required"/></th>
 	</tr>
 	
 	<tr>
 	<th>Location</th>
-	<th><select name="location">
-	<option disabled selected value="">Selected Location</option>
+	<th><select name="location" required="required">
+	<option disabled selected value="" required="required">Selected Location</option>
 	<option>Bulk Zone</option>
 	<option>Pick Zone</option>
 	<option>Distribution Center</option>
@@ -133,11 +138,12 @@
 
 	<tr>
 	<th>Category</th>
-	<th><select name="category">
+	<th><select name="category" required="required">
 	<option disabled selected value="">Selected Category</option>
-	<option>Health and Personal Care</option>
-	<option>Baby Care</option>
-	<option>Medical Supplies and Equipments</option>
+	<option>Vegetables</option>
+	<option>Fruit</option>
+	<option>dry fruits</option>
+	<option>Dairy</option>
 	</select></th>
 	</tr> 
 	 
@@ -156,6 +162,22 @@
 <p>
 <a href="ItemController">Back To List</a>
 </p>
+<!-- FOOTER -->
+   <div class="container-fluid">
+  <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="lead text-center">
+            Copyright &copy;
+            <span id="year"></span>
+            METRO-CASH-&-CARRY
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>
   
     
     <!-- Optional JavaScript -->

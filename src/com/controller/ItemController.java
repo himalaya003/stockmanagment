@@ -125,14 +125,23 @@ String searchName= request.getParameter("searchName");
 		
 		Date doe = new Date();
 		doe = sdf.parse(dateOfExpiry);
+		String message=null;
+		if(!doe.after(dom))
+		{
+			message="date of expiry can't be before date of manufacture ";
+			request.setAttribute("msg", message);
+			RequestDispatcher rd= request.getRequestDispatcher("add_item.jsp");
+			rd.forward(request, response);
+		}
 		
+		else {
 		Item item = new Item(itemCode, itemName, unit, beginningInventory, quantityOnHand, pricePerUnit, dom, doe, location, category);
 					
 		itemUtil.updateItem(item);   //Model ko date dega
 		
 		//listItem(request,response); // list call
 		response.sendRedirect("ItemController?command=LIST");
-		
+		}
 	}
 
 	private void addItem(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -152,6 +161,16 @@ String searchName= request.getParameter("searchName");
 		
 		Date doe = new Date();
 		doe = sdf.parse(dateOfExpiry);
+		String message=null;
+		if(!doe.after(dom))
+		{
+			message="date of expiry can't be before date of manufacture ";
+			request.setAttribute("msg", message);
+			RequestDispatcher rd= request.getRequestDispatcher("add_item.jsp");
+			rd.forward(request, response);
+		}
+		else
+		{
 		
 		Item item = new Item(itemName, unit, beginningInventory, quantityOnHand, pricePerUnit, dom, doe, location, category);
 		
@@ -159,6 +178,7 @@ String searchName= request.getParameter("searchName");
 		
 		//listItem(request,response);  //send back to main page(the item list)
 		response.sendRedirect("ItemController?command=LIST");
+	}
 	}
 
 	private void loadItem(HttpServletRequest request, HttpServletResponse response)throws Exception {

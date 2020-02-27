@@ -70,7 +70,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl">
-        <h1>Grocery Stock Management</h1>
+        <image src="homepage.jpg" class="rounded float-left" height="100" width="150">
+        <br>
+        <h1 style="font-size:50px" align="center">GROCERY DETAILS</h1>
         </div>
       </div>
     </div>
@@ -172,6 +174,24 @@
         
       </div>
     </div>
+  </div>
+  <br>
+  <br>
+  <!-- FOOTER -->
+   <div class="container-fluid">
+  <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="lead text-center">
+            Copyright &copy;
+            <span id="year"></span>
+            METRO-CASH-&-CARRY
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
   </div>
   
   

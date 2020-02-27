@@ -19,7 +19,7 @@ body
 </head>
 <body>
 
-<h1 style="font-size:60px "align="center" font><u><font color="white">METRO CASH & CARRY</font></u></h1>
+<h1 style="font-size:60px" align="center" font><u><font color="white">METRO CASH & CARRY</font></u></h1>
 <a href="Home.jsp" class="back-home" title="Back to home"> &lt;&lt; Back to home</a>
 <div class="bottomleft">
 <p>

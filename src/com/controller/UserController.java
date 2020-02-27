@@ -126,8 +126,8 @@ public class UserController extends HttpServlet {
 
 	private void getUser(HttpServletRequest request, HttpServletResponse response)throws Exception {
 		// TODO Auto-generated method stub
-		String userId=request.getParameter("userId");
-		String password=request.getParameter("password");
+		String userId=request.getParameter("userId").trim();
+		String password=request.getParameter("password").trim();
 		
 		String message=null;
 		String path="login.jsp";

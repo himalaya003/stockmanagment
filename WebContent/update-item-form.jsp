@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Update form</title>
+    <% response.setHeader("Cache-Control","no-cache, no-store,must-revalidate");%>
   </head>
   <body>
     
@@ -69,7 +70,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xl">
-        <h1>Grocery Stock Management</h1>
+        <image src="homepage.jpg" class="rounded float-left" height="100" width="150" aling="middle">
+        <br>
+        <h1 align="center">UPDATE GROCERY ITEMS</h1>
         </div>
       </div>
     </div>
@@ -78,7 +81,6 @@
   <br>
   
  <div align="center">
-<h1>Update Items</h1>
 </head>
 <body>
 	<form action="ItemController" method="post">
@@ -88,7 +90,7 @@
 	<tbody>
 	<tr>
 	<th>Item_Name</th>
-	<th><input type="text" name="itemName"  value="${ITEM.itemName}" placeholder="itemName"/></th>
+	<th><input type="text" name="itemName" required="required" value="${ITEM.itemName}" placeholder="itemName"/></th>
 	</tr>
 	
 	<tr>
@@ -98,17 +100,17 @@
 	
 	<tr>
 	<th>Beginning_Inventory</th>
-	<th><input type="text" name="beginningInventory" value="${ITEM.beginningInventory }"  placeholder="BeginningInventory"/></th>
+	<th><input type="number" name="beginningInventory" required="required" value="${ITEM.beginningInventory }"  placeholder="BeginningInventory"/></th>
 	</tr>
 	
 	<tr>
 	<th>Quantity_On_Hand </th>
-	<th><input type="text" name="quantityOnHand" value="${ITEM.quantityOnHand }" placeholder="QuantityOnHand"/></th>
+	<th><input type="number" required="required" name="quantityOnHand" value="${ITEM.quantityOnHand }" placeholder="QuantityOnHand"/></th>
 	</tr>
 	
 	<tr>
 	<th>Price_Per_Unit </th>
-	<th><input type="number" name="pricePerUnit" value="${ITEM.pricePerUnit }" required="required" placeholder="PricePerUnit" min ="0"/></th>
+	<th><input type="number" required="required" name="pricePerUnit" value="${ITEM.pricePerUnit }" required="required" placeholder="PricePerUnit" min ="0"/></th>
 	</tr>
 	
 	<tr>
@@ -123,21 +125,22 @@
 	
 	<tr>
 	<th>Location</th>
-	<th><select name="location" >
+	<th><select name="location" required="required">
 	<option selected>${ITEM.location }</option>
 	<option>Bulk Zone</option>
-	<option>Delhi</option>
+	<option>Pickzone</option>
 	<option>Distribution Center</option>
 	</select></th>
 	</tr>
 	
 	<tr>
 	<th>Category</th>
-	<th><select name="itemCategory">
+	<th><select name="category" required="required">
 	<option selected>${ITEM.itemCategory }</option>
-	<opyion>Pharma Drug</opyion>
-	<option>Health and Personal Care</option>
-	<option>Baby Care</option>
+	<option>Vegetables</option>
+	<option>Fruit</option>
+	<option>dry fruits</option>
+	<option>Dairy</option>
 	<option>Medical Supplies and Equipments</option>
 	</select></th>
 	</tr>
@@ -155,8 +158,24 @@
 </form>
 <div style="clear:both;"></div>
 <p>
-<a href="itemController">Back To List</a>
-</p>  
+<a href="ItemController">Back To List</a>
+</p>
+<!-- FOOTER -->
+   <div class="container-fluid">
+  <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="lead text-center">
+            Copyright &copy;
+            <span id="year"></span>
+            METRO-CASH-&-CARRY
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

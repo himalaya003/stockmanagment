@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login Form</title>
+<% response.setHeader("Cache-Control","no-cache, no-store,must-revalidate");%>
 <link rel="stylesheet" href="Style2.css">
 </head>
 <body>

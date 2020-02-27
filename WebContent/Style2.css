@@ -1,28 +1,29 @@
-
-
+@charset "ISO-8859-1";
 body{
   margin: 0;
   padding: 0;
-  background: #487eb0;
+  background: #333;
+  font-family: "Montserrat",sans-serif;
 }
-.signup-form{
+.login-form{
   width: 300px;
+  height: 600px;
   padding: 20px;
   text-align: center;
-  background: url(bg.png);
+  background: url(loginnew1.jpg);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   overflow: hidden;
 }
-.signup-form h1{
+.login-form h1{
   margin-top: 100px;
   font-family: 'Permanent Marker', cursive;
   color: #fff;
   font-size: 40px;
 }
-.signup-form input{
+.login-form input{
   display: block;
   width: 100%;
   padding: 0 16px;
@@ -38,7 +39,7 @@ body{
   background: rgba(255,255,255,.5);
   border-radius: 6px;
 }
-.signup-btn{
+.login-btn{
   margin-top: 60px;
   margin-bottom: 20px;
   background: #2F4F4F;
@@ -47,10 +48,10 @@ body{
   cursor: pointer;
   transition: 0.8s;
 }
-.signup-btn:hover{
+.login-btn:hover{
   transform: scale(0.96);
 }
-.signup-form a{
+.login-form a{
   text-decoration: none;
   color: #fff;
   font-family: "montserrat",sans-serif;
@@ -59,6 +60,6 @@ body{
   transition: 0.8s;
   display: block;
 }
-.signup-form a:hover{
+.login-form a:hover{
   background: rgba(0,0,0,.3);
 }

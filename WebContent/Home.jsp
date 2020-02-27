@@ -46,7 +46,7 @@
     </li>
     <li class="nav-item">
     <a href="registration.jsp" class="nav-link">
-    <i class="fa fa-user"></i>SING UP
+    <i class="fa fa-user"></i>SIGN UP
     </a>
     </li>
     
@@ -59,9 +59,9 @@
  <div class="container-fluid">
   <div class="jumbotron">
   
-  <p class="lead"><b>METRO Cash & Carry</b> is a Germanmultinational whole chain,owned by<font color="blue">Metro AG</font>,which operates membership-only <font color="blue">warehouse clubs</font> across Europe,China,Japan,Pakistan.</p>
+  <p class="lead"><b>METRO Cash & Carry</b> is a German multinational whole chain,owned by<font color="blue">Metro AG</font>,which operates membership-only <font color="blue">warehouse clubs</font> across Europe,China,Japan,Pakistan.</p>
   <hr class="my-4">
-  <p>The cash-and-carry concept is based around self-service and bulk buying grocery targets bussiness owners.Core customer groups are hotels,resturents,caterers,traders,and other bussiness professionals.</p>
+  <p>The cash-and-carry concept is based around self-service and bulk buying grocery targets business owners.Core customer groups are hotels,restaurants,caters,traders,and other business professionals.</p>
   <a class="btn btn-primary btn-lg" href="https://www.metro.co.in/" role="button">Learn more</a>
 </div>
 
